@@ -104,7 +104,7 @@ const internList = async function (req, res) {
         if (interns.length == 0) {
             collegeDetails.interests = "no interns present"
         }
-        res.send({ 'data': collegeDetails })
+        res.status(201).send({ 'data': collegeDetails })
     }
     catch (err) {
         res.status(500).send({ 'err': err })
