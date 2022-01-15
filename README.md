@@ -1,4 +1,3 @@
-# titaniumaplus
 
 ## Open to Intern Project Requirement
 
