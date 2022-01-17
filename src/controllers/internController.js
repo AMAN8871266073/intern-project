@@ -39,7 +39,7 @@ const registerIntern = async function (req, res) {
             res.status(400).send({ status: false, message: `mobile should be a valid mobile number` })
             return
         }
-        const isMobileAlreadyUsed = await internModel.findOne({ mobile }); // {email: email} object shorthand property
+        const isMobileAlreadyUsed = await internModel.findOne({ mobile:mobile }); // {email: email} object shorthand property
 
         if (isMobileAlreadyUsed) {
             res.status(400).send({ status: false, message: `${mobile} mobile is already registered` })
@@ -54,7 +54,7 @@ const registerIntern = async function (req, res) {
             res.status(400).send({ status: false, message: `Email should be a valid email address` })
             return
         }
-        const isEmailAlreadyUsed = await internModel.findOne({ email }); // {email: email} object shorthand property
+        const isEmailAlreadyUsed = await internModel.findOne({ email:email }); // {email: email} object shorthand property
         if (isEmailAlreadyUsed) {
             res.status(400).send({ status: false, message: `${email} email address is already registered` })
             return
@@ -104,7 +104,7 @@ const internList = async function (req, res) {
         if (interns.length == 0) {
             collegeDetails.interests = "no interns present"
         }
-        res.status(201).send({ 'data': collegeDetails })
+        res.status(200).send({ 'data': collegeDetails })
     }
     catch (err) {
         res.status(500).send({ 'err': err })

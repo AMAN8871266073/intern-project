@@ -19,7 +19,7 @@ const registerCollege = async function (req, res) {
             res.status(400).send({ status: false, message: 'college name is required' })
             return
         }
-        let isName = await collegeModel.findOne({ name }); // {email: email} object shorthand property
+        let isName = await collegeModel.findOne({ name:name }); // {email: email} object shorthand property
         if (isName) {
             res.status(400).send({ status: false, message: `${name} college  already registered` })
             return
@@ -28,7 +28,7 @@ const registerCollege = async function (req, res) {
             res.status(400).send({ status: false, message: 'full name is required' })
             return
         }
-        let isFullName = await collegeModel.findOne({ fullName }); // {email: email} object shorthand property
+        let isFullName = await collegeModel.findOne({fullName:fullName }); // {email: email} object shorthand property
         if (isFullName) {
             res.status(400).send({ status: false, message: `${fullName} college  already registered with name ${isFullName.name}` })
             return
